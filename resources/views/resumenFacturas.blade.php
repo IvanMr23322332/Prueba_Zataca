@@ -8,6 +8,8 @@
         <h2>Numero de impagos:          <b>{{$fields}}</b></h2>
         <br>
         <h2>Total de impagos:           <b>{{$total}}€</b></h2>
+        <br>
+        <h2>Rango entre facturas:       <b>{{$min}}   -   {{$max}}</b></h2> 
 
     </body>
 </html>

@@ -18,7 +18,13 @@ class FacturasController extends Controller
         $total = facturas::where('pagada',false)
                 ->where('fecha_factura','>',date('c', strtotime('-60 days')))
                 ->sum('total_factura');
+        $max = facturas::where('pagada',false)
+                ->where('fecha_factura','>',date('c', strtotime('-60 days')))
+                ->max('fecha_factura');
+        $min = facturas::where('pagada',false)
+                ->where('fecha_factura','>',date('c', strtotime('-60 days')))
+                ->min('fecha_factura');
 
-        return view('resumenFacturas', ['total' => $total, 'fields' => $fields]);
+        return view('resumenFacturas', ['total' => $total, 'fields' => $fields, 'max' => $max, 'min' => $min]);
     }
 }
